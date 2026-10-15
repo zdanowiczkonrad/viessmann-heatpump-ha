@@ -121,7 +121,10 @@ class ViCareExtrasCoordinator(DataUpdateCoordinator[ViCareExtrasData]):
         """Upload a DHW time program, translating API errors."""
 
         def _write(new_schedule: dict) -> None:
-            self.device.service.setProperty(
+            # Device.setProperty (not service.setProperty): its signature is stable
+            # across PyViCare versions, while the service-level call gained a
+            # leading accessor argument in 2.61.0.
+            self.device.setProperty(
                 DHW_SCHEDULE_FEATURE, "setSchedule", {"newSchedule": new_schedule}
             )
 
