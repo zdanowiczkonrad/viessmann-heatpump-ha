@@ -70,7 +70,7 @@ The exact schedule constraints (valid modes, max entries per day, whether
 `end: "24:00"` is accepted) vary by device. Verify against the live API first:
 
 ```bash
-pip install PyViCare==2.60.2
+pip install "PyViCare>=2.61.0"
 export VICARE_EMAIL="you@example.com"
 export VICARE_PASSWORD="..."
 export VICARE_CLIENT_ID="..."   # https://app.developer.viessmann-climatesolutions.com/
